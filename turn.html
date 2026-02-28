@@ -25,11 +25,13 @@ body {
 /* Phone container */
 .phone {
   width: 390px;
-  height: 100vh;
+  min-height: 100vh;
   background: #fff6e8;
-  position: relative;
-  overflow: hidden;
-  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 80px; /* space for the fixed nav */
+  overflow-y: auto;
 }
 
 /* Logo */
@@ -41,15 +43,11 @@ body {
 
 /* Video wrapper */
 .video-wrapper {
-  position: absolute;
-  top: 160px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 300px;
-  height: 533px;
-  border-radius: 20px;
-  overflow: hidden;
-  background: black;
+  position: relative;   /* ← remove absolute */
+  top: unset;
+  left: unset;
+  transform: none;
+  margin-top: 20px;
 }
 
 .video-wrapper video {
@@ -60,22 +58,19 @@ body {
 
 /* Caption */
 .caption {
-  position: absolute;
-  bottom: 110px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #ff8c3a;
-  background-color: #fff6e8;
-  font-weight: 600;
-  font-size: 16px;
-  text-align: center;
+  position: relative;   /* ← remove absolute */
+  bottom: unset;
+  left: unset;
+  transform: none;
+  margin-top: 12px;
 }
 
 /* Buttons */
 .controls {
-  position: absolute;
-  bottom: 100px;
+  position: relative;   /* ← remove absolute */
+  bottom: unset;
   width: 100%;
+  margin-top: 16px;
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
@@ -90,6 +85,7 @@ button {
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
+  margin-bottom: 10px;
 }
 
 button:active {
@@ -98,9 +94,9 @@ button:active {
 
 /* Bottom nav */
 .nav {
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 390px;
   height: 80px;
   background: #ff8c3a;
   display: flex;
